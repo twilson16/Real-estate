@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+ }
+
+ body {
+     background-image: url("background.jpg");
+     margin: 0px;
+ }
+
+ #home-header {
+     text-align: center;
+     margin: 50px 0px;
+    
+ }
+#home-title {
+    font-family: 'Roboto Slab', serif;
+    color: #f4db5f;
+    font-weight: bold;
+    font-size: 2em;
+    margin: unset;
+}
+
+#home-sub {
+    font-family: 'Playfair Display', serif;
+    color: #f7e7a5;
+}
+
+#main-container {
+   color: #f7e7a5;
+   background: linear-gradient(rgba(17, 19, 35, .45), rgba(17, 19, 35, .45)), no-repeat center/cover;
+   padding: 0px 40px;
+   height: 60vh;
+}
+
+img {
+    max-width: 95%;
+}
+
+#photo-container {
+    width: 70%;
+    display: inline-block; 
+    height: 60vh;
+}
+
+#agent-container {
+    width: 28%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding: 40px 30px;
+    background-color: #111323;
+    height: 100%;
+}
+
+#agent-container img {
+    max-width: 60%;
+    height: 100px;
+    border-radius: 70px ;
+    margin: 10px 0px;
+}
+
+#agent-contact {
+    margin: 60% 0px 0px 0px;
+    position: relative;
+}
+
+#home-description {
+    width: 69%;
+    padding: 10px 40px;
+    color: #9dc4b2;
+    font-family: 'Bree Serif', serif;
+    font-size: .9rem;
+    text-align: justify;
+    clear: both;
+
+}
+
+
+
