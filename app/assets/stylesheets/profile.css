@@ -1,3 +1,70 @@
-/* body {
-    background-color: pink;
-} */
+@import url('https://fonts.googleapis.com/css?family=BenchNine');
+
+#page-container-profile {
+    height: 100vh;
+    font-family: 'BenchNine', sans-serif;
+}
+
+#profile-menu {
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    background-color: #B66D76;
+    height: 100%;
+}
+
+#logged-in, #log-out {
+    background-color: white;
+    margin: 20px 0px;
+}
+
+#profile-main {
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+}
+
+#contact-button-container, #edit-button-container {
+    padding: 20px 5px;
+}
+
+.contact-button, .edit-button {
+    padding: 10px 5px;
+    margin: 0px 30px;
+    width: 20%;
+    color: white;
+    background-color: #9e0750;
+    font-size: 1rem;
+}
+
+.edit-button {
+    width: 35%;  
+    margin: 0px 10px; 
+}
+
+#name-section {
+    margin: 40px 0px 0px 0px;
+}
+#name-section img {
+    max-width: 18%;
+    border-radius: 150px ;
+    margin: 10px 0px;
+}
+
+.details {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.detail-title {
+    color: #9e0750;
+    font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+}
+

@@ -1,2 +1,57 @@
-<h1>Profile#profile</h1>
-<p>Find me in app/views/profile/profile.html.erb</p>
+<div id="page-container-profile">
+
+<div id="profile-menu">
+<%=image_tag("logo.png", alt: "Festi logo")%>
+ <div id="logged-in">Logged in as </div>
+
+<div id="log-out">Log Out</div>
+
+</div>
+
+<div id="profile-main">
+<div id="name-section"> 
+<%=image_tag("profile.jpg", alt: "Profile picture")%>
+<div>MAI RIQUIER</div>
+<span>Created by</span>
+<span>Updated by</span>
+</div>
+
+<div id="contact-button-container">
+<button class="contact-button">MESSAGE</button>
+<button class="contact-button">TEXT</button>
+<button class="contact-button">CALL</button>
+</div>
+
+<hr>
+
+<div id="details-container">
+
+<div class="details roles">
+<div class="detail-title">ROLES</div>
+  <ul>
+    <li class="details-list">Staff</li>
+    <li class="details-list">Volunteer</li>
+  </ul>
+</div>
+
+<div class="details languages">
+<div class="detail-title">LANGUAGES</div>
+  <ul>
+    <li class="details-list">Spanish</li>
+  </ul>
+</div>
+
+<div class="details location">
+<div class="detail-title">LOCATION</div>
+  <ul>
+    <li class="details-list">Denver, CO</li>
+  </ul>
+</div>
+</div>
+
+<div id="edit-button-container">
+<button class="edit-button">PERSONAL INFO EDIT</button>
+<button class="edit-button">USER ACCOUNT EDIT</button>
+</div>
+</div>
+</div>
