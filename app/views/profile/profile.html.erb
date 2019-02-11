@@ -1,19 +1,79 @@
+<%= javascript_include_tag 'profile' %>
+<%= javascript_tag do %>
+
+$(document).ready(function() {
+    var functions = ['btn1()', 'btn2()', 'btn3()', 'btn4()', 'btn5()', 'btn6()', 'btn7()', 'btn8()', 'btn9()', 'btn10()'];
+    var div = document.getElementById('selection-options');
+    var buttonTitle = [
+    'Groups',
+    'Submissions',
+    'Positions',
+    'Assignments',
+    'Schedule/shifts',
+    'Inventory History',
+    'Ledger Entry',
+    'Orders', 
+    'Donations', 
+    'Support tickets'
+  ]
+    var ctr = 1;
+    for (var i in functions) {
+
+        var btn = document.createElement('button');
+        var label = document.createElement('div')
+        var txt = document.createTextNode(buttonTitle[i]);
+        
+        label.appendChild(txt);
+        btn.setAttribute('type', 'button');
+        btn.setAttribute('onclick', functions[i]);
+        btn.setAttribute('id', buttonTitle[i]+'-selection');
+        btn.classList.add('selection-button')
+        div.appendChild(label);
+        label.classList.add('selection-title')
+        label.appendChild(btn);
+        ctr++;
+    }
+});
+
+function btn1() {alert('button 1');}    
+function btn2() {alert('button 2');}    
+function btn3() {alert('button 3');}
+function btn4() {alert('button 4');}
+function btn5() {alert('button 5');}
+function btn6() {alert('button 6');}
+function btn7() {alert('button 7');}
+function btn8() {alert('button 8');}
+function btn9() {alert('button 9');}
+function btn10() {alert('button 10');}
+
+
+
+
+<% end %>
+
 <div id="page-container-profile">
 
 <div id="profile-menu">
 <%=image_tag("logo.png", alt: "Festi logo")%>
- <div id="logged-in">Logged in as </div>
+ <div id="logged-in">Logged in as <span>${name name name}</span> </div>
 
-<div id="log-out">Log Out</div>
+<div id="selection-options">
+
+
+</div>
+
+
+<button id="log-out-button"><span>Log Out</span></button>
 
 </div>
 
 <div id="profile-main">
 <div id="name-section"> 
 <%=image_tag("profile.jpg", alt: "Profile picture")%>
-<div>MAI RIQUIER</div>
-<span>Created by</span>
-<span>Updated by</span>
+<div id="profile-name">MAI RIQUIER</div>
+<div id="date-container"> <span class="profile-date">Created by</span><span class="date">${name name name}</span>
+<span class="profile-date">Updated by</span><span class="date">${name name name}</span>
+</div>
 </div>
 
 <div id="contact-button-container">
@@ -22,7 +82,7 @@
 <button class="contact-button">CALL</button>
 </div>
 
-<hr>
+<hr id="horizontal">
 
 <div id="details-container">
 
@@ -53,5 +113,11 @@
 <button class="edit-button">PERSONAL INFO EDIT</button>
 <button class="edit-button">USER ACCOUNT EDIT</button>
 </div>
+</div>
+
+<div id="vertical"></div>
+<div id="options-container">
+<div class="options"></div>
+
 </div>
 </div>
