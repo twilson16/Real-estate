@@ -2,7 +2,10 @@
 <%= javascript_tag do %>
 
 $(document).ready(function() {
+  // assign button functions to array
     var functions = ['btn1()', 'btn2()', 'btn3()', 'btn4()', 'btn5()', 'btn6()', 'btn7()', 'btn8()', 'btn9()', 'btn10()'];
+
+    //call element on page to hold buttons
     var div = document.getElementById('selection-options');
     var buttonTitle = [
     'Groups',
@@ -18,36 +21,91 @@ $(document).ready(function() {
   ]
     var ctr = 1;
     for (var i in functions) {
-
+      //create buttons and div for label text
         var btn = document.createElement('button');
         var label = document.createElement('div')
         var txt = document.createTextNode(buttonTitle[i]);
         
+        //append text to labels
         label.appendChild(txt);
+
+        //assign functions to buttons and set ids and class names
         btn.setAttribute('type', 'button');
         btn.setAttribute('onclick', functions[i]);
-        btn.setAttribute('id', buttonTitle[i]+'-selection');
+
+        //translate titles into appropriate text for id's
+        str = `${buttonTitle[i]}`
+        str = str.replace(/\s+/g, '-').toLowerCase();
+        str = str.replace("/", "-").toLowerCase();
+        btn.setAttribute('id', str+'-selection');
         btn.classList.add('selection-button')
+
+        //append labels to container div on page and assign class name; append buttons to labels//
         div.appendChild(label);
         label.classList.add('selection-title')
         label.appendChild(btn);
         ctr++;
     }
+
+  var selectedOptions = [
+    'Groups',
+    'Submissions',
+    'Positions',
+    'Assignments',
+    'Schedule/shifts',
+    'Inventory History',
+    'Ledger Entry',
+    'Orders', 
+    'Donations', 
+    'Support tickets'
+  ]
+
+  //call element on page to hold results info
+  var resultDiv = document.getElementById('options-div');
+  
+  for (var i in selectedOptions) {
+    //create divs to hold title and text, set to not display
+    var options = document.createElement('div')
+    options.classList.add('options')
+    
+    //change options list to lowercase to be able to access as ids
+    str = `${selectedOptions[i]}`
+    str = str.replace(/\s+/g, '-').toLowerCase();
+    str = str.replace("/", "-").toLowerCase();
+    console.log(str)
+    options.setAttribute('id', str+'-result')
+
+    //create divs to hold titles
+    var resultTitle = document.createElement('div')
+    //set inner html of title divs
+    resultTitle.innerHTML = (`${selectedOptions[i]}`)
+    //place title in option div and add id
+    options.prepend(resultTitle)
+    resultTitle.id = (selectedOptions[i]+'-title')
+
+    //create div for results text, add class and HTML and append
+    //to results div
+    var results = document.createElement('div')
+    results.classList.add('results')
+    results.innerHTML = ('City of medicine american tobacco the indy biker bar fifteen five oh one mle, the west end the boulevard bay 7 cupcakes the state of things, seed funding watts-hillandale bimbe toro. Pousser la hausse duke chapel gritty house-made elefante underground food truck, five points ninth street elf durham divas 70 slow-food, 55 duke chapel en alza rigsbee towerview drive five points. Bay 7 fayetville street lemurs underground food truck rodeo baromsg subaru, world beer festival barilotto 15-501 cleveland holloway. Juneteenth elf railroad alston avenue stier aptalca hata alston avenue, speklasyon yapmak authentic scooter marry durham.');
+    options.appendChild(results)
+
+    resultDiv.appendChild(options)
+    ctr++
+  }
+
 });
 
-function btn1() {alert('button 1');}    
-function btn2() {alert('button 2');}    
-function btn3() {alert('button 3');}
-function btn4() {alert('button 4');}
-function btn5() {alert('button 5');}
-function btn6() {alert('button 6');}
-function btn7() {alert('button 7');}
-function btn8() {alert('button 8');}
-function btn9() {alert('button 9');}
-function btn10() {alert('button 10');}
-
-
-
+function btn1() {$( '#groups-result' ).toggleClass('show');} 
+function btn2() {$( '#submissions-result' ).toggleClass('show');} 
+function btn3() {$( '#positions-result' ).toggleClass('show');}
+function btn4() {$( '#assignments-result' ).toggleClass('show');}
+function btn5() {$( '#schedule-shifts-result' ).toggleClass('show');}
+function btn6() {$( '#inventory-history-result' ).toggleClass('show');}
+function btn7() {$( '#ledger-entry-result' ).toggleClass('show');}
+function btn8() {$( '#orders-result' ).toggleClass('show');}
+function btn9() {$( '#donations-result' ).toggleClass('show');}
+function btn10() {$( '#support-tickets-result' ).toggleClass('show');}
 
 <% end %>
 
@@ -72,7 +130,7 @@ function btn10() {alert('button 10');}
 <%=image_tag("profile.jpg", alt: "Profile picture")%>
 <div id="profile-name">MAI RIQUIER</div>
 <div id="date-container"> <span class="profile-date">Created by</span><span class="date">${name name name}</span>
-<span class="profile-date">Updated by</span><span class="date">${name name name}</span>
+<span class="profile-date">Updated by</span><span class="date">`${name name name}`</span>
 </div>
 </div>
 
@@ -117,7 +175,7 @@ function btn10() {alert('button 10');}
 
 <div id="vertical"></div>
 <div id="options-container">
-<div class="options"></div>
+<div id="options-div"></div>
 
 </div>
 </div>
