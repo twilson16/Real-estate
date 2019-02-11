@@ -2,7 +2,10 @@
 <%= javascript_tag do %>
 
 $(document).ready(function() {
+  // assign button functions to array
     var functions = ['btn1()', 'btn2()', 'btn3()', 'btn4()', 'btn5()', 'btn6()', 'btn7()', 'btn8()', 'btn9()', 'btn10()'];
+
+    //call element on page to hold buttons
     var div = document.getElementById('selection-options');
     var buttonTitle = [
     'Groups',
@@ -18,24 +21,68 @@ $(document).ready(function() {
   ]
     var ctr = 1;
     for (var i in functions) {
-
+      //create buttons and div for label text
         var btn = document.createElement('button');
         var label = document.createElement('div')
         var txt = document.createTextNode(buttonTitle[i]);
         
+        //append text to labels
         label.appendChild(txt);
+
+        //assign functions to buttons and set ids and class names
         btn.setAttribute('type', 'button');
         btn.setAttribute('onclick', functions[i]);
         btn.setAttribute('id', buttonTitle[i]+'-selection');
         btn.classList.add('selection-button')
+
+        //append labels to container div on page and assign class name; append buttons to labels//
         div.appendChild(label);
         label.classList.add('selection-title')
         label.appendChild(btn);
         ctr++;
     }
+
+  var selectedOptions = [
+    'Groups',
+    'Submissions',
+    'Positions',
+    'Assignments',
+    'Schedule/shifts',
+    'Inventory History',
+    'Ledger Entry',
+    'Orders', 
+    'Donations', 
+    'Support tickets'
+  ]
+
+  //call element on page to hold results info
+  var resultDiv = document.getElementById('options');
+  
+  for (var i in selectedOptions) {
+    //create divs to hold results
+    var results = document.createElement('div')
+
+    //create divs to hold titles
+    var resultTitle = document.createElement('div')
+    //set inner html of title divs
+    resultTitle.innerHTML = (`${selectedOptions[i]}`)
+
+    var resultTxt = document.createTextNode('City of medicine american tobacco the indy biker bar fifteen five oh one mle, the west end the boulevard bay 7 cupcakes the state of things, seed funding watts-hillandale bimbe toro. Pousser la hausse duke chapel gritty house-made elefante underground food truck, five points ninth street elf durham divas 70 slow-food, 55 duke chapel en alza rigsbee towerview drive five points. Bay 7 fayetville street lemurs underground food truck rodeo baromsg subaru, world beer festival barilotto 15-501 cleveland holloway. Juneteenth elf railroad alston avenue stier aptalca hata alston avenue, speklasyon yapmak authentic scooter marry durham.');
+
+    //place title and text in result divs and add classnames and ids 
+    resultDiv.appendChild(resultTitle)
+    resultDiv.appendChild(resultTxt)
+    results.classList.add('results')
+    resultTitle.id = (selectedOptions[i]+'-title')
+    results.setAttribute('id', selectedOptions[i]+'-result')
+    resultDiv.appendChild(results)
+    ctr++
+  }
+
 });
 
-function btn1() {alert('button 1');}    
+function btn1() {$( "div" ).filter(function (i) {
+  return i = `${buttonTitle}`})}    
 function btn2() {alert('button 2');}    
 function btn3() {alert('button 3');}
 function btn4() {alert('button 4');}
@@ -47,6 +94,8 @@ function btn9() {alert('button 9');}
 function btn10() {alert('button 10');}
 
 
+// $('#condition_dependancy').toggle(condition);
+// $( "div" ).filter( ":id" )
 
 
 <% end %>
@@ -117,7 +166,7 @@ function btn10() {alert('button 10');}
 
 <div id="vertical"></div>
 <div id="options-container">
-<div class="options"></div>
+<div id="options"></div>
 
 </div>
 </div>

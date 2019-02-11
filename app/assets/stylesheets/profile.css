@@ -130,3 +130,7 @@ li {
     height: 100vh
 
 }
+
+#options {
+    vertical-align: top;
+}
