@@ -127,10 +127,18 @@ li {
     background-color: #faeded;
     width: 50%;
     display: inline-block;
-    height: 100vh
+    height: 100vh;
+    vertical-align: top;
+    overflow-x: scroll; 
 
 }
 
-#options {
+.options {
     vertical-align: top;
+    display: none;
+    margin: 20px;
+}
+
+.show {
+    display: block;
 }
