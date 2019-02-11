@@ -24,21 +24,22 @@
     font-size: 1.4rem;
     margin: 5px 5px;
     padding: 0px, 10px, 0px, 0px;
+    vertical-align: top;
 }
 
 .selection-button {
     width: 12%;
-    height: 1.2rem;
+    height: 1.8rem;
     margin: 0px 6px;
     border-radius: 60px;
-    vertical-align: center;
+    vertical-align: bottom;
 }
 
 #log-out-button {
-    padding: 10px 5px;
+    padding: 15px 5px;
     width: 100%;
     margin: 20px 0px 10px 0px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-family: 'BenchNine', sans-serif;
 }
 
