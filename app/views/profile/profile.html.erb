@@ -107,7 +107,10 @@ function btn7() {$( '#ledger-entry-result' ).toggleClass('show');}
 function btn8() {$( '#orders-result' ).toggleClass('show');}
 function btn9() {$( '#donations-result' ).toggleClass('show');}
 function btn10() {$( '#support-tickets-result' ).toggleClass('show');}
-function btn11() {$( '.options').toggleClass('show')}
+function btn11() {$( '#toggle-all-selection').click(function () {
+    {$( '.options').addClass('show')}
+  } )}
+  
 
 
 <% end %>
