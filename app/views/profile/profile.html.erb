@@ -108,10 +108,50 @@ function btn8() {$( '#orders-result' ).toggleClass('show');}
 function btn9() {$( '#donations-result' ).toggleClass('show');}
 function btn10() {$( '#support-tickets-result' ).toggleClass('show');}
 function btn11() {$( '#toggle-all-selection').click(function () {
-    {$( '.options').addClass('show')}
-  } )}
-  
+ {$( '.options').toggleClass('show')}
+ } )}
 
+
+
+// function btn11() {$( '#toggle-all-selection').click(function() {
+//   {$( '.options').addClass('show')}
+//   var div = document.getElementsByClassName('options')
+//   var className = attr("class");
+//   if(className === 'options') {
+//     div.className = 'options show';
+//   }
+//   else{
+//     div.className = 'options';
+//   }
+// }
+
+// )}
+
+
+
+//  function btn11() {$( '#toggle-all-selection').click(function () {
+//    let options = document.getElementsByClassName('options')
+//    console.log(options)
+//   {$( '.options').addClass('show')}
+//     if (options.classList.contains('show')) {
+//       {$('.options').removeClass('show')}
+//     }
+//  } )}
+
+
+
+
+// function btn11() {$( '#toggle-all-selection').click(function (i, selection) {
+//   var selection = document.getElementsByClassName('options')
+//      for (var i = 0; i < selection.length; i++) {
+//       selection[i].classList.toggle('show')
+//   } })}
+
+  // function btn11() {$( '#toggle-all-selection').click(function () {
+  //   if (class !== 'options show)
+  //   {$( '.options').toggleClass('show')}
+  //  } )}
+  
 
 <% end %>
 
