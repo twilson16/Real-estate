@@ -107,12 +107,27 @@ function btn7() {$( '#ledger-entry-result' ).toggleClass('show');}
 function btn8() {$( '#orders-result' ).toggleClass('show');}
 function btn9() {$( '#donations-result' ).toggleClass('show');}
 function btn10() {$( '#support-tickets-result' ).toggleClass('show');}
+
+//works but only if already one or none, otherwise will just reverse what 
+//is or is not showing
 function btn11() {$( '#toggle-all-selection').click(function () {
  {$( '.options').toggleClass('show')}
  } )}
 
+//Works to add all if none are already on page only if click 2 times,
+//but if any are on page, removes all first
+// function btn11() {$( '#toggle-all-selection').click(function () {
+// let options = document.getElementsByClassName('show')
+// console.log(options)
+// if (options.length < 10) {
+//   {$( '.options').addClass('show')}
+// } else {
+//   {$( '.options').removeClass('show')}
+// }
+//  } )}
 
-
+//Will open all even if only some open, cannot remove
+//does not like attr
 // function btn11() {$( '#toggle-all-selection').click(function() {
 //   {$( '.options').addClass('show')}
 //   var div = document.getElementsByClassName('options')
@@ -124,11 +139,11 @@ function btn11() {$( '#toggle-all-selection').click(function () {
 //     div.className = 'options';
 //   }
 // }
-
 // )}
 
 
-
+//will open all even if only some open, will not remove
+//does not like contains
 //  function btn11() {$( '#toggle-all-selection').click(function () {
 //    let options = document.getElementsByClassName('options')
 //    console.log(options)
@@ -139,19 +154,13 @@ function btn11() {$( '#toggle-all-selection').click(function () {
 //  } )}
 
 
-
-
+//adds but will just reverse if only some open
 // function btn11() {$( '#toggle-all-selection').click(function (i, selection) {
 //   var selection = document.getElementsByClassName('options')
 //      for (var i = 0; i < selection.length; i++) {
 //       selection[i].classList.toggle('show')
 //   } })}
 
-  // function btn11() {$( '#toggle-all-selection').click(function () {
-  //   if (class !== 'options show)
-  //   {$( '.options').toggleClass('show')}
-  //  } )}
-  
 
 <% end %>
 
