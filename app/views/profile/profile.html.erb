@@ -6,7 +6,7 @@ $(document).ready(function() {
     var functions = ['btn1()', 'btn2()', 'btn3()', 'btn4()', 'btn5()', 'btn6()', 'btn7()', 'btn8()', 'btn9()', 'btn10()', 'btn11()'];
 
     //call element on page to hold buttons
-    var div = document.getElementById('selection-options');
+    var container = document.getElementById('selection-options');
     var buttonTitle = [
     'Groups',
     'Submissions',
@@ -22,30 +22,52 @@ $(document).ready(function() {
   ]
     var ctr = 1;
     for (var i in functions) {
-      //create buttons and div for label text
-        var btn = document.createElement('button');
-        var label = document.createElement('div')
+      //create div to contain everything 
+      //create toggles, buttons and label/label text
+        var div = document.createElement('div')
+        var btn = document.createElement('input');
+        var label = document.createElement('label')
+        var title = document.createElement('span')
         var txt = document.createTextNode(buttonTitle[i]);
+        var span = document.createElement('span')
         
-        //append text to labels
-        label.appendChild(txt);
-
-        //assign functions to buttons and set ids and class names
-        btn.setAttribute('type', 'button');
+        //append text to title span
+        title.appendChild(txt);
+    
+        //assign functions to buttons
+        btn.setAttribute('type', 'checkbox');
         btn.setAttribute('onclick', functions[i]);
 
         //translate titles into appropriate text for id's
         str = `${buttonTitle[i]}`
         str = str.replace(/\s+/g, '-').toLowerCase();
         str = str.replace("/", "-").toLowerCase();
-        btn.setAttribute('id', str+'-selection');
-        btn.classList.add('selection-button')
 
-        //append labels to container div on page and assign class name; append buttons to labels//
-        div.appendChild(label);
-        label.classList.add('selection-title')
-        label.appendChild(btn);
+        //set container div id and label/btn ids
+        div.setAttribute('id', str+'-selection');
+        label.setAttribute('for', str+'-button');
+        btn.setAttribute('id', str+'-button');
+      
+        //add classes
+        title.classList.add('selection-title')
+        label.classList.add('switch')
+        btn.classList.add('selection-button')
+        span.classList.add('slider')
+        span.classList.add('round')
+
+        //append btn and span to label
+        label.appendChild(btn)
+        label.appendChild(span)
+
+        //append title and label to container div
+        div.appendChild(title)
+        div.appendChild(label)
+
+        //append div to container div on page
+        container.appendChild(div);
+        
         ctr++;
+
     }
 
   var selectedOptions = [
@@ -181,6 +203,7 @@ function btn11() {$( '#toggle-all-selection').click(function () {
 </div>
 
 <div id="profile-main">
+<div id="name-contact-container">
 <div id="name-section"> 
 <%=image_tag("profile.jpg", alt: "Profile picture")%>
 <div id="profile-name">MAI RIQUIER</div>
@@ -194,9 +217,11 @@ function btn11() {$( '#toggle-all-selection').click(function () {
 <button class="contact-button">TEXT</button>
 <button class="contact-button">CALL</button>
 </div>
+</div>
 
-<hr id="horizontal">
+<hr id="horizontal" class="hidden">
 
+<div id="details-edit-container">
 <div id="details-container">
 
 <div class="details roles">
@@ -227,8 +252,9 @@ function btn11() {$( '#toggle-all-selection').click(function () {
 <button class="edit-button">USER ACCOUNT EDIT</button>
 </div>
 </div>
+</div>
 
-<div id="vertical"></div>
+<div id="vertical" class="hidden"></div>
 <div id="options-container">
 <div id="options-div"></div>
 
