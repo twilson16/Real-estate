@@ -19,9 +19,9 @@ body {
 
  #home-header {
      text-align: center;
-     padding: 50px 0px;
-    
+     padding: 50px 0px; 
  }
+
 #home-title {
     font-family: 'Roboto Slab', serif;
     color: #f4db5f;
@@ -41,7 +41,7 @@ body {
    height: 100%;
 }
 
-img {
+.home-image {
     max-width: 95%;
     height: auto; 
 }

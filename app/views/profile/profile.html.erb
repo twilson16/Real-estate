@@ -6,7 +6,7 @@ $(document).ready(function() {
     var functions = ['btn1()', 'btn2()', 'btn3()', 'btn4()', 'btn5()', 'btn6()', 'btn7()', 'btn8()', 'btn9()', 'btn10()', 'btn11()'];
 
     //call element on page to hold buttons
-    var container = document.getElementById('selection-options');
+    var container = document.getElementById('selection-options switch-toggle-all');
     var buttonTitle = [
     'Groups',
     'Submissions',
@@ -37,6 +37,7 @@ $(document).ready(function() {
         //assign functions to buttons
         btn.setAttribute('type', 'checkbox');
         btn.setAttribute('onclick', functions[i]);
+        btn.setAttribute('data', 'data-toggle-all')
 
         //translate titles into appropriate text for id's
         str = `${buttonTitle[i]}`
@@ -130,6 +131,10 @@ function btn8() {$( '#orders-result' ).toggleClass('show');}
 function btn9() {$( '#donations-result' ).toggleClass('show');}
 function btn10() {$( '#support-tickets-result' ).toggleClass('show');}
 
+// funtion btn11() $('#switch-toggle-all ('data-toggle-all')' ).click(function () {
+//   $( '#switch-toggle-all input[type="checkbox"]').prop('checked', this.checked)
+// })
+
 //works but only if already one or none, otherwise will just reverse what 
 //is or is not showing
 function btn11() {$( '#toggle-all-selection').click(function () {
@@ -187,22 +192,21 @@ function btn11() {$( '#toggle-all-selection').click(function () {
 <% end %>
 
 <div id="page-container-profile">
-
-<div id="profile-menu">
+<div class="row">
+<div id="profile-menu" class="col-sm-3">
 <%=image_tag("logo.png", alt: "Festi logo")%>
  <div id="logged-in">Logged in as <span>${name name name}</span> </div>
-
-<div id="selection-options">
+<div id="space-div"></div>
+<div id="selection-options switch-toggle-all">
 
 
 </div>
-
-
 <button id="log-out-button"><span>Log Out</span></button>
-
 </div>
+
 
 <div id="profile-main">
+<div class="col-sm-2">
 <div id="name-contact-container">
 <div id="name-section"> 
 <%=image_tag("profile.jpg", alt: "Profile picture")%>
@@ -253,10 +257,13 @@ function btn11() {$( '#toggle-all-selection').click(function () {
 </div>
 </div>
 </div>
+</div>
 
 <div id="vertical" class="hidden"></div>
-<div id="options-container">
-<div id="options-div"></div>
 
-</div>
+  <div id="options-container" class="col-md-6">
+    <div id="options-div"></div>
+  </div>
+
+</div> 
 </div>

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+ }
+
+body {
+    margin: 0px;
+}
+
+#page-container-contact {
+    background-image: url("background.jpg");
+    margin: 0px;
+    /* background-position: center; */
+}
+
+#contact-header {
+    text-align: center;
+    padding: 50px 0px;
+}
+
+#contact-header-title {
+    font-family: 'Roboto Slab', serif;
+    color: #f4db5f;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#contact-sub {
+    font-family: 'Playfair Display', serif;
+    color: #f7e7a5;
+}
+
+#photo-container-contact {
+    width: 100%;
+}
+
+.contact-image {
+    max-width: 100%;
+    height: auto; 
+}
+
+#contact-container {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+#agent-image-container-contact {
+   width: 40%;
+   display: inline-block;
+   margin: 40px 0px 30px 50px;
+   height: 100%;
+}
+
+#agent-image-contact {
+    width: 60%;
+    border-radius: 70px;
+    height: 100%;
+}
+
+#contact-info {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    text-align: center;
+    margin: 30px;
+    height: 100%;
+    color: #f7e7a5;
+}
+

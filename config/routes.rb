@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'agent/detail'
+  get 'contact/contact'
+  get 'home/contact'
   get 'profile/profile'
   get 'home/index'
 
