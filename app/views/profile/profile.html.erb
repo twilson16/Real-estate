@@ -1,0 +1,269 @@
+<%= javascript_include_tag 'profile' %>
+<%= javascript_tag do %>
+
+$(document).ready(function() {
+  // assign button functions to array
+    var functions = ['btn1()', 'btn2()', 'btn3()', 'btn4()', 'btn5()', 'btn6()', 'btn7()', 'btn8()', 'btn9()', 'btn10()', 'btn11()'];
+
+    //call element on page to hold buttons
+    var container = document.getElementById('selection-options switch-toggle-all');
+    var buttonTitle = [
+    'Groups',
+    'Submissions',
+    'Positions',
+    'Assignments',
+    'Schedule/shifts',
+    'Inventory History',
+    'Ledger Entry',
+    'Orders', 
+    'Donations', 
+    'Support tickets',
+    'Toggle All'
+  ]
+    var ctr = 1;
+    for (var i in functions) {
+      //create div to contain everything 
+      //create toggles, buttons and label/label text
+        var div = document.createElement('div')
+        var btn = document.createElement('input');
+        var label = document.createElement('label')
+        var title = document.createElement('span')
+        var txt = document.createTextNode(buttonTitle[i]);
+        var span = document.createElement('span')
+        
+        //append text to title span
+        title.appendChild(txt);
+    
+        //assign functions to buttons
+        btn.setAttribute('type', 'checkbox');
+        btn.setAttribute('onclick', functions[i]);
+        btn.setAttribute('data', 'data-toggle-all')
+
+        //translate titles into appropriate text for id's
+        str = `${buttonTitle[i]}`
+        str = str.replace(/\s+/g, '-').toLowerCase();
+        str = str.replace("/", "-").toLowerCase();
+
+        //set container div id and label/btn ids
+        div.setAttribute('id', str+'-selection');
+        label.setAttribute('for', str+'-button');
+        btn.setAttribute('id', str+'-button');
+      
+        //add classes
+        title.classList.add('selection-title')
+        label.classList.add('switch')
+        btn.classList.add('selection-button')
+        span.classList.add('slider')
+        span.classList.add('round')
+
+        //append btn and span to label
+        label.appendChild(btn)
+        label.appendChild(span)
+
+        //append title and label to container div
+        div.appendChild(title)
+        div.appendChild(label)
+
+        //append div to container div on page
+        container.appendChild(div);
+        
+        ctr++;
+
+    }
+
+  var selectedOptions = [
+    'Groups',
+    'Submissions',
+    'Positions',
+    'Assignments',
+    'Schedule/shifts',
+    'Inventory History',
+    'Ledger Entry',
+    'Orders', 
+    'Donations', 
+    'Support tickets'
+  ]
+
+  //call element on page to hold results info
+  var resultDiv = document.getElementById('options-div');
+  
+  for (var i in selectedOptions) {
+    //create divs to hold title and text, set to not display
+    var options = document.createElement('div')
+    options.classList.add('options')
+    
+    //change options list to lowercase to be able to access as ids
+    str = `${selectedOptions[i]}`
+    str = str.replace(/\s+/g, '-').toLowerCase();
+    str = str.replace("/", "-").toLowerCase();
+    console.log(str)
+    options.setAttribute('id', str+'-result')
+
+    //create divs to hold titles
+    var resultTitle = document.createElement('div')
+    //set inner html of title divs
+    resultTitle.innerHTML = (`${selectedOptions[i]}`)
+    //place title in option div and add id
+    options.prepend(resultTitle)
+    resultTitle.id = (selectedOptions[i]+'-title')
+
+    //create div for results text, add class and HTML and append
+    //to results div
+    var results = document.createElement('div')
+    results.classList.add('results')
+    results.innerHTML = ('City of medicine american tobacco the indy biker bar fifteen five oh one mle, the west end the boulevard bay 7 cupcakes the state of things, seed funding watts-hillandale bimbe toro. Pousser la hausse duke chapel gritty house-made elefante underground food truck, five points ninth street elf durham divas 70 slow-food, 55 duke chapel en alza rigsbee towerview drive five points. Bay 7 fayetville street lemurs underground food truck rodeo baromsg subaru, world beer festival barilotto 15-501 cleveland holloway. Juneteenth elf railroad alston avenue stier aptalca hata alston avenue, speklasyon yapmak authentic scooter marry durham.');
+    options.appendChild(results)
+
+    resultDiv.appendChild(options)
+    ctr++
+  }
+
+});
+
+function btn1() {$( '#groups-result' ).toggleClass('show');} 
+function btn2() {$( '#submissions-result' ).toggleClass('show');} 
+function btn3() {$( '#positions-result' ).toggleClass('show');}
+function btn4() {$( '#assignments-result' ).toggleClass('show');}
+function btn5() {$( '#schedule-shifts-result' ).toggleClass('show');}
+function btn6() {$( '#inventory-history-result' ).toggleClass('show');}
+function btn7() {$( '#ledger-entry-result' ).toggleClass('show');}
+function btn8() {$( '#orders-result' ).toggleClass('show');}
+function btn9() {$( '#donations-result' ).toggleClass('show');}
+function btn10() {$( '#support-tickets-result' ).toggleClass('show');}
+
+// funtion btn11() $('#switch-toggle-all ('data-toggle-all')' ).click(function () {
+//   $( '#switch-toggle-all input[type="checkbox"]').prop('checked', this.checked)
+// })
+
+//works but only if already one or none, otherwise will just reverse what 
+//is or is not showing
+function btn11() {$( '#toggle-all-selection').click(function () {
+ {$( '.options').toggleClass('show')}
+ } )}
+
+//Works to add all if none are already on page only if click 2 times,
+//but if any are on page, removes all first
+// function btn11() {$( '#toggle-all-selection').click(function () {
+// let options = document.getElementsByClassName('show')
+// console.log(options)
+// if (options.length < 10) {
+//   {$( '.options').addClass('show')}
+// } else {
+//   {$( '.options').removeClass('show')}
+// }
+//  } )}
+
+//Will open all even if only some open, cannot remove
+//does not like attr
+// function btn11() {$( '#toggle-all-selection').click(function() {
+//   {$( '.options').addClass('show')}
+//   var div = document.getElementsByClassName('options')
+//   var className = attr("class");
+//   if(className === 'options') {
+//     div.className = 'options show';
+//   }
+//   else{
+//     div.className = 'options';
+//   }
+// }
+// )}
+
+
+//will open all even if only some open, will not remove
+//does not like contains
+//  function btn11() {$( '#toggle-all-selection').click(function () {
+//    let options = document.getElementsByClassName('options')
+//    console.log(options)
+//   {$( '.options').addClass('show')}
+//     if (options.classList.contains('show')) {
+//       {$('.options').removeClass('show')}
+//     }
+//  } )}
+
+
+//adds but will just reverse if only some open
+// function btn11() {$( '#toggle-all-selection').click(function (i, selection) {
+//   var selection = document.getElementsByClassName('options')
+//      for (var i = 0; i < selection.length; i++) {
+//       selection[i].classList.toggle('show')
+//   } })}
+
+
+<% end %>
+
+<div id="page-container-profile">
+<div class="row">
+<div id="profile-menu" class="col-sm-3">
+<%=image_tag("logo.png", alt: "Festi logo")%>
+ <div id="logged-in">Logged in as <span>${name name name}</span> </div>
+<div id="space-div"></div>
+<div id="selection-options switch-toggle-all">
+
+
+</div>
+<button id="log-out-button"><span>Log Out</span></button>
+</div>
+
+
+<div id="profile-main">
+<div class="col-sm-2">
+<div id="name-contact-container">
+<div id="name-section"> 
+<%=image_tag("profile.jpg", alt: "Profile picture")%>
+<div id="profile-name">MAI RIQUIER</div>
+<div id="date-container"> <span class="profile-date">Created by</span><span class="date">${name name name}</span>
+<span class="profile-date">Updated by</span><span class="date">`${name name name}`</span>
+</div>
+</div>
+
+<div id="contact-button-container">
+<button class="contact-button">MESSAGE</button>
+<button class="contact-button">TEXT</button>
+<button class="contact-button">CALL</button>
+</div>
+</div>
+
+<hr id="horizontal" class="hidden">
+
+<div id="details-edit-container">
+<div id="details-container">
+
+<div class="details roles">
+<div class="detail-title">ROLES</div>
+  <ul>
+    <li class="details-list">Staff</li>
+    <li class="details-list">Volunteer</li>
+  </ul>
+</div>
+
+<div class="details languages">
+<div class="detail-title">LANGUAGES</div>
+  <ul>
+    <li class="details-list">Spanish</li>
+  </ul>
+</div>
+
+<div class="details location">
+<div class="detail-title">LOCATION</div>
+  <ul>
+    <li class="details-list">Denver, CO</li>
+  </ul>
+</div>
+</div>
+
+<div id="edit-button-container">
+<button class="edit-button">PERSONAL INFO EDIT</button>
+<button class="edit-button">USER ACCOUNT EDIT</button>
+</div>
+</div>
+</div>
+</div>
+
+<div id="vertical" class="hidden"></div>
+
+  <div id="options-container" class="col-md-6">
+    <div id="options-div"></div>
+  </div>
+
+</div> 
+</div>

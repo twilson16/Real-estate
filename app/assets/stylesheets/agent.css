@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:700');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+ }
+
+body {
+    margin: 0px;
+}
+
+#page-container-detail {
+    background-image: url("background.jpg");
+    margin: 0px;
+    background-position: center;
+}
+
+#detail-header {
+    text-align: center;
+    padding: 50px 0px;
+}
+
+#detail-title {
+    font-family: 'Roboto Slab', serif;
+    color: #f4db5f;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#main-container-detail {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+#agent-profile-title {
+    font-family: 'Playfair Display', serif;
+    color: #f7e7a5;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 10px;
+}
+
+#agent-detail-container {
+    margin: 20px 10px;
+}
+
+#agent-detail-info {
+    font-family: 'Playfair Display', serif;
+    color: #f7e7a5;
+    text-align: right;
+    display: inline-block;
+    width: 45%;
+}
+
+#agent-detail-image-container {
+    display: inline-block;
+    width: 40%;
+    margin: 10px 40px;
+}
+
+#agent-image-detail {
+    width: 60%;
+    border-radius: 70px;
+    height: 100%;
+}
+
+#company-info-detail {
+    font-family: 'Playfair Display', serif;
+    color: #f7e7a5;
+    text-align: center;
+    padding: 30px;
+}
+
+#purchase-container-detail {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+#date-container-detail {
+    display: inline-block;
+    width: 15%;
+    vertical-align: top;
+    margin: 20px 0px 20px 5px;
+}
+
+#date-title, #order-detail-title {
+    font-weight: bold;
+    margin: 0px 0px 20px 0px;
+}
+
+#order-container-detail {
+    display: inline-block;
+    width: 80%;
+    margin: 20px 0px 0px 10px;
+}
+
+#purchase-options-container {
+    margin: 20px 0px 20px 20px;
+}
+
+#stills-options-container, #drone-options-container {
+    margin: 5px 0px 20px 20px;
+}
+
+.virtual-tour-branded-container, .virtual-tour-unbranded-container, .download-container {
+    margin: 10px 0px;
+}
+
+.virtual-tour-branded-input, .virtual-tour-unbranded-input, .download-input {
+    font-size: .8rem;
+    width: 43%;
+}
+
+.copy-detail-button, .edit-detail-button, .upgrade-detail-button, .how-to-detail-button {
+    width: 16%;
+    padding: 3px 4px;
+    border-radius: 10px;
+    margin: 0px 2px;
+    font-size: .8rem
+}
+

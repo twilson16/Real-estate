@@ -1,13 +1,13 @@
-<header id="home-header"><h1 id="home-title">A Beautifully Crafted Home</h1>
+<div id="page-container-home"><header id="home-header"><h1 id="home-title">A Beautifully Crafted Home</h1>
 <div id="home-sub"><i>19 FULLER LANE, Albany, NY 12026 US</i></div>
 </header>
 <div id="main-container"> 
 <div id="photo-container">
- <%=image_tag("kitchen.jpg", alt: "Picture of a kitchen")%>
+ <%=image_tag("kitchen.jpg", alt: "Picture of a kitchen", class: "home-image")%>
 </div>
 <div id="agent-container">
-<%=image_tag("agent.jpg", alt: "Picture of Real Estate Agent")%>
-<div id="agent-contact">
+<%=image_tag("agent.jpg", alt: "Picture of Real Estate Agent", class: "home-image")%>
+ <div id="agent-contact">
 <p id="agent-name"> Lori Darvucchi</p>
 <p id="agent-title">Real Estate Specialist</p>
 <p id="agent-email">lori.darvucchi@realestate.com</p>
@@ -19,4 +19,5 @@
 
  <div id="home-description">
  <p>Such a beautiful renovation. 6 bedrooms and 4.5 baths. New hardwood floors, open floor plan, stainless steel appliances, beautiful ceiling details all await you!! New kitchen with granite countertops and all new bathrooms. Relax in your HUGE finished basement and enjoy the summer in your large yard.</p>
+ </div>
  </div>

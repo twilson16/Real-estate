@@ -7,22 +7,26 @@
     padding: 0;
  }
 
- body {
+body {
+    margin: 0px;
+}
+
+ #page-container-home {
      background-image: url("background.jpg");
      margin: 0px;
+     background-position: center;
  }
 
  #home-header {
      text-align: center;
-     margin: 50px 0px;
-    
+     padding: 50px 0px; 
  }
+
 #home-title {
     font-family: 'Roboto Slab', serif;
     color: #f4db5f;
     font-weight: bold;
     font-size: 2em;
-    margin: unset;
 }
 
 #home-sub {
@@ -34,17 +38,18 @@
    color: #f7e7a5;
    background: linear-gradient(rgba(17, 19, 35, .45), rgba(17, 19, 35, .45)), no-repeat center/cover;
    padding: 0px 40px;
-   height: 60vh;
+   height: 100%;
 }
 
-img {
+.home-image {
     max-width: 95%;
+    height: auto; 
 }
 
 #photo-container {
     width: 70%;
     display: inline-block; 
-    height: 60vh;
+    height: 100%;
 }
 
 #agent-container {
@@ -52,21 +57,20 @@ img {
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    padding: 40px 30px;
+    padding: 40px 20px 10px 20px;
     background-color: #111323;
     height: 100%;
+    margin: 0 auto;
 }
 
 #agent-container img {
     max-width: 60%;
-    height: 100px;
     border-radius: 70px ;
     margin: 10px 0px;
 }
 
 #agent-contact {
-    margin: 60% 0px 0px 0px;
-    position: relative;
+    padding: 40px 0px 0px 0px;
 }
 
 #home-description {
@@ -76,8 +80,6 @@ img {
     font-family: 'Bree Serif', serif;
     font-size: .9rem;
     text-align: justify;
-    clear: both;
-
 }
 
 
