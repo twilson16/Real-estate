@@ -103,6 +103,13 @@
     font-family: 'BenchNine', sans-serif;
 }
 
+#container {
+    display: inline-block;
+    width: 84%;
+    padding: 0;
+    margin: 0;
+}
+
 #profile-main {
   width: 34%;
   display: inline-block;
@@ -186,7 +193,7 @@ li {
 
 #options-container {
     background-color: #faeded;
-    width: 50%;
+    width: 65%;
     display: inline-block;
     height: 100vh;
     vertical-align: top;
@@ -210,20 +217,23 @@ li {
     }
 
     #profile-menu {
-        position: fixed;
+        display: inline-block;
+        width: 20%;
         height: 100%;
-        /* width: 25%; */
+
     }
 
-    .space-div {
-        height: 60vh;
+    #container {
+        display: inline-block;
+        width: 79%;
     }
 
-    #profile-main {
-        /* width: 75%; */
-        /* position: relative;  */
-        margin-left: 172px;
+    #space-div {
+        height: 89vh;
+        background-color: #b36872;
     }
+
+
     /* #name-contact-container, #details-edit-container {
         display: inline-block;
         width: 40%;
@@ -233,7 +243,7 @@ li {
     .details, .profile-date {
         display: inline-block;
         margin: 5px auto;
-        width: 20%;
+        /* width: 20%; */
     }
 
     .profile-date, .date {
@@ -250,9 +260,8 @@ li {
     }
 
     #options-container {
-        display: block;
-        margin-left: 172px;
-        /* width: 75%; */
+        display: inline-block;
+        width: 100%;
     }
 
     .options {
