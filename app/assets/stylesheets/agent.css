@@ -3,7 +3,8 @@
 
 * {
     box-sizing: border-box;
-    padding: 0;
+    padding: 0px;
+
  }
 
 body {
@@ -12,7 +13,7 @@ body {
 
 #page-container-detail {
     background-image: url("background.jpg");
-    margin: 0px;
+    padding: 0px 0px 50px 0px;
     background-position: center;
 }
 
@@ -29,7 +30,7 @@ body {
 }
 
 #main-container-detail {
-    max-width: 70%;
+    max-width: 75%;
     margin: 0 auto;
 }
 
@@ -60,9 +61,10 @@ body {
 }
 
 #agent-image-detail {
-    width: 60%;
+    width: 40%;
     border-radius: 70px;
     height: 100%;
+    /* padding: 10px 0px 0px 0px; */
 }
 
 #company-info-detail {
@@ -72,53 +74,203 @@ body {
     padding: 30px;
 }
 
+#order-history {
+    font-family: 'Playfair Display', serif;
+    color: #f7e7a5;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
 #purchase-container-detail {
     font-family: 'Playfair Display', serif;
     color: white;
-    max-width: 90%;
+    max-width: 98%;
     margin: 0 auto;
 }
 
 #date-container-detail {
-    display: inline-block;
-    width: 15%;
     vertical-align: top;
-    margin: 20px 0px 20px 5px;
+    margin: 20px 0px 10px 0px;
 }
 
 #date-title, #order-detail-title {
     font-weight: bold;
-    margin: 0px 0px 20px 0px;
+}
+
+#date-title {
+    display: inline-block;
+    width: 14%;
+}
+
+#date-ordered {
+    display: inline-block;
+    width: 62%;
+    vertical-align: top;
+}
+
+#order-title-container {
+    width: 14%;
+    display: inline-block;
+}
+
+#how-to-container {
+    width: 22%;
+    display: inline-block;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
+    padding: 2px;
+}
+
+/* .fa-question-circle {
+    font-size: .8rem;
+    padding: 6px 0px 0px 0px;
+    vertical-align: top;
+} */
+
+a:link{
+    text-decoration: none;
+    color: black;
+    margin: 3px;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+    font-size: 1.1rem;
+    font-weight: bold;
+
 }
 
 #order-container-detail {
-    display: inline-block;
-    width: 80%;
-    margin: 20px 0px 0px 10px;
+   display: inline-block;
+   width: 85%;
+   vertical-align: top;
 }
 
 #purchase-options-container {
-    margin: 20px 0px 20px 20px;
+    margin: 20px 0px 20px 8px;
 }
 
 #stills-options-container, #drone-options-container {
-    margin: 5px 0px 20px 20px;
+    margin: 5px 0px 20px 10px;
 }
 
 .virtual-tour-branded-container, .virtual-tour-unbranded-container, .download-container {
     margin: 10px 0px;
 }
 
-.virtual-tour-branded-input, .virtual-tour-unbranded-input, .download-input {
+.pc-container {
+    display: inline-block;
+    width: 62%;
+}
+/* .virtual-tour-branded-input, .virtual-tour-unbranded-input, .download-input { */
+ .link {
     font-size: .8rem;
-    width: 43%;
+    width: 35%;
+    display: inline-block;
+    background: white;
+    color: black;
 }
 
-.copy-detail-button, .edit-detail-button, .upgrade-detail-button, .how-to-detail-button {
-    width: 16%;
+.copy-detail-button, .edit-detail-button, .upgrade-detail-button, .how-to-detail-button, .craigslist-detail-button {
+    width: 24%;
     padding: 3px 4px;
     border-radius: 10px;
-    margin: 0px 2px;
-    font-size: .8rem
+    font-size: .8rem;
 }
 
+.mobile-container {
+    display: none;
+}
+
+@media only screen and (max-width: 925px) {
+    .pc-container {
+        display: none;
+    }
+
+    .mobile-container {
+        display: inline-block;
+        width: 59%;
+        padding: 10px 0px;
+        vertical-align: top;
+    }
+
+    .link {
+        display: inline-block;
+        max-width: 40%;
+        font-size: .9rem;
+    }
+
+    .mobile-button {
+        display: inline-block;
+        width: 20%;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    #agent-detail-info, #agent-detail-image-container {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    #agent-image-detail {
+        max-width: 28%;
+        margin: 10px 0px;
+    }
+
+    #company-info-detail {
+        margin: 5px 0px 20px 0px;
+        padding: 0px;
+        font-size: 1.2rem;
+    }
+
+    #order-history {
+        font-size: 1.3rem;
+    }
+
+    #order-container-detail {
+        font-size: 1.1rem;
+    }
+
+    #how-to-container {
+        vertical-align: top;
+    }
+
+    /* .copy-detail-button, .edit-detail-button, .upgrade-detail-button, .how-to-detail-button, .craigslist-detail-button {
+        width: 22%;
+        padding: 3px 4px;
+        border-radius: 10px;
+        font-size: .8rem;
+        margin: 4px 4px;
+    } */
+
+    #stills-title, #drone-title {
+        padding: 0px 0px 10px 0px;
+    }
+
+    .virtual-tour-branded-container, .virtual-tour-unbranded-container, .download-container {
+        margin: 5px 0px 25px 0px;
+    }
+
+}
+
+/* @media only screen and (max-width: 650px) {
+  .mobile {
+      display: 
+  }
+} */
+
+@media only screen and (max-width: 540px) {
+    #date-ordered {
+        width: 50%;
+    }
+}

@@ -1,3 +1,45 @@
+
+<%= javascript_tag do %>
+// const copyToClipboard = str => {
+//   const el = document.createElement('textarea');
+//   el.value = str;
+//   document.body.appendChild(el);
+//   el.select();
+//   document.execCommand('copy');
+//   console.log(el.value)
+//   document.body.removeChild(el);
+// };
+
+function copyBtn() {
+
+copyBtn = document.getElementById('.stills-virtual-tour-branded-copy');  
+copyBtn.addEventListener('click', function(event) {  
+  // Select the email link anchor text  
+  console.log("Clicked button")
+  var websiteLink = document.getElementById('.stills-virtual-tour-branded-copy');  
+  var range = document.createRange();  
+  range.selectNode(websiteLink);  
+  window.getSelection().addRange(range);  
+
+  try {  
+    // Now that we've selected the anchor text, execute the copy command  
+    var successful = document.execCommand('copy');  
+    var msg = successful ? 'successful' : 'unsuccessful';  
+    console.log('Copy email command was ' + msg);  
+  } catch(err) {  
+    console.log('Oops, unable to copy');  
+  }  
+
+  // Remove the selections - NOTE: Should use
+  // removeRange(range) when it is supported  
+  window.getSelection().removeAllRanges();  
+})
+}
+
+
+<% end %>
+
+
 <div id="page-container-detail">
 <header id="detail-header">
 <h1 id="detail-title"> Real Estate Agency  </h1>
@@ -23,53 +65,117 @@
     </div>
     <hr id="horizontal">
 
-    
+    <div id="order-history">ORDER HISTORY</div>
+
+    <hr id="horizontal">
+
     <div id="purchase-container-detail">
         <div id="date-container-detail">
-           <div id="date-title">Date</div>
-           <div id="date-uploaded">2018-03-13</div>
+           <div id="date-title">Order Date</div>
+           <div id="date-ordered">2018-03-13</div>
+           <div id="how-to-container"><a href="#" target=blank id="how-to-link"><i class="far fa-question-circle"></i>&nbsp;How-to</a></div>
+        </div>
+         <div id="order-title-container">
+          <div id="order-detail-title"> Details</div>
         </div>
         <div id="order-container-detail">
-            <div id="order-detail-title">Order Details</div>
             <div id="order-address-detail">4865 Skyline Dr, Duanesburg, NY, 12053, US</div>
             <div id="purchase-options-container">
                     <div id="stills-title">Stills: Slideshow-Virtual Tour </div>
                     <div id="stills-options-container"> 
                         <div class="virtual-tour-branded-container">
-                            <input class="virtual-tour-branded-input" type="text" value="Virtual Tour (branded)">
-                            <button id="stills-virtual-tour-branded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-edit-branded-button" class="edit-detail-button">Edit</button>
-                            <button id="stills-upgrade-branded-button" class="upgrade-detail-button">Upgrade</button>
+                            <div class="virtual-tour-branded-input link" type="text" value="" onclick=copyBtn()>Virtual Tour (branded)</div>
+                               <div class="pc-container pc">
+                                <button id="stills-virtual-tour-branded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                <button id="stills-edit-branded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                                <button id="stills-upgrade-branded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                                <button id="stills-craiglist-branded-button" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                               </div>
+                               <div class="mobile-container mobile">
+                                <button id="stills-virtual-tour-branded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                <button id="stills-edit-branded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                                <button id="stills-upgrade-branded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                                <button id="stills-craiglist-branded-button" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                            </div>
                         </div>
+                        
                         <div class="virtual-tour-unbranded-container">
-                            <input class="virtual-tour-unbranded-input" type="text" value="Virtual Tour (unbranded)">
-                            <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-unbranded-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="virtual-tour-unbranded-input link" type="text" value="">Virtual Tour (unbranded)</div>
+                               <div class="pc-container pc">
+                                  <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                  <button id="stills-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                                  <button id="stills-upgrade-unbranded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                               </div>
+                              <div class="mobile-container mobile">
+                                  <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                  <button id="stills-edit-unbranded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                                  <button id="stills-upgrade-unbranded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                              </div>
                         </div>
+
                          <div class="download-container">
-                            <input class="download-input" type="text" value="Download photos (save required)">
-                            <button id="stills-download-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="download-input link" type="text" value="">Download photos (save required)</div>
+                              <div class="pc-container pc">
+                                 <button id="stills-download-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                 <button id="stills-download-edit" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>                           
+                                 <button id="stills-download-upgrade" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                                 <button id="stills-download-credit" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                              </div>
+                              <div class="mobile-container mobile">
+                                 <button id="stills-download-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                 <button id="stills-download-edit" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>                           
+                                 <button id="stills-download-upgrade" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                                 <button id="stills-download-credit" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+
+                              </div>
                         </div>
                   </div>
 
                    <div id="drone-title">Drone photos only (5-30 photos)</div>
                    <div id="drone-options-container"> 
                       <div class="virtual-tour-branded-container">
-                            <input class="virtual-tour-branded-input" type="text" value="Virtual Tour (branded)">
-                            <button id="drone-virtual-tour-branded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-edit-branded-button" class="edit-detail-button">Edit</button>
-                            <button id="drone-upgrade-branded-button" class="upgrade-detail-button">Upgrade</button>
+                         <div class="virtual-tour-branded-input link" type="text" value="">Virtual Tour (branded)</div>
+                           <div class="pc-container pc">
+                              <button id="drone-virtual-tour-branded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                              <button id="drone-edit-branded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-branded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                              <button id="drone-craiglist-branded-button" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                           </div>
+                           <div class="mobile-container mobile">
+                              <button id="drone-virtual-tour-branded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                              <button id="drone-edit-branded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                              <button id="drone-upgrade-branded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                              <button id="drone-craiglist-branded-button" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                           </div>
+                        
                         </div>
+
                         <div class="virtual-tour-unbranded-container">
-                            <input class="virtual-tour-unbranded-input" type="text" value="Virtual Tour (unbranded)">
-                            <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-unbranded-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="virtual-tour-unbranded-input link" type="text" value="">Virtual Tour (unbranded)</div>
+                            <div class="pc-container pc">
+                               <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>                            <button id="drone-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-unbranded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>                        
+                            </div>
+                            <div class="mobile-container mobile">
+                                <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>                            <button id="drone-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-unbranded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>  
+                            </div>
+                       
                         </div>
-                         <div class="download-container">
-                            <input class="download-input" type="text" value="Download photos (save required)">
-                            <button id="drone-stills-download-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-stills-how-to-button" class="how-to-detail-button">How-to</button>
+                        <div class="download-container">
+                            <div class="download-input link" type="text" value="">Download photos (save required)</div>
+                            <div class="pc-container pc">
+                               <button id="drone-download-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                               <button id="drone-download-edit" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>                           
+                               <button id="drone-download-upgrade" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                               <button id="drone-download-credit" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                            </div>
+                            <div class="mobile-container mobile">
+                                <button id="drone-download-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                               <button id="drone-download-edit" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>                           
+                               <button id="drone-download-upgrade" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                               <button id="drone-download-credit" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                            </div>
                         </div>
                   </div>
             </div>
@@ -77,52 +183,113 @@
     </div>
     <hr id="horizontal">
 
-<div id="purchase-container-detail">
+ <div id="purchase-container-detail">
         <div id="date-container-detail">
-           <div id="date-title">Date</div>
-           <div id="date-uploaded">2018-03-13</div>
+           <div id="date-title">Order Date</div>
+           <div id="date-ordered">2018-03-13</div>
+           <div id="how-to-container"><a href="#" target=blank id="how-to-link"><i class="far fa-question-circle"></i>&nbsp;How-to</a></div>
+        </div>
+         <div id="order-title-container">
+          <div id="order-detail-title"> Details</div>
         </div>
         <div id="order-container-detail">
-            <div id="order-detail-title">Order Details</div>
             <div id="order-address-detail">4865 Skyline Dr, Duanesburg, NY, 12053, US</div>
             <div id="purchase-options-container">
                     <div id="stills-title">Stills: Slideshow-Virtual Tour </div>
                     <div id="stills-options-container"> 
                         <div class="virtual-tour-branded-container">
-                            <input class="virtual-tour-branded-input" type="text" value="Virtual Tour (branded)">
-                            <button id="stills-virtual-tour-branded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-edit-branded-button" class="edit-detail-button">Edit</button>
-                            <button id="stills-upgrade-branded-button" class="upgrade-detail-button">Upgrade</button>
+                            <div class="virtual-tour-branded-input link" type="text" value="" onclick=copyToClipboard()>Virtual Tour (branded)</div>
+                               <div class="pc-container pc">
+                                <button id="stills-virtual-tour-branded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                <button id="stills-edit-branded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                                <button id="stills-upgrade-branded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                                <button id="stills-craiglist-branded-button" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                               </div>
+                               <div class="mobile-container mobile">
+                                <button id="stills-virtual-tour-branded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                <button id="stills-edit-branded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                                <button id="stills-upgrade-branded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                                <button id="stills-craiglist-branded-button" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                            </div>
                         </div>
+                        
                         <div class="virtual-tour-unbranded-container">
-                            <input class="virtual-tour-unbranded-input" type="text" value="Virtual Tour (unbranded)">
-                            <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-unbranded-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="virtual-tour-unbranded-input link" type="text" value="">Virtual Tour (unbranded)</div>
+                               <div class="pc-container pc">
+                                  <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                  <button id="stills-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                                  <button id="stills-upgrade-unbranded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                               </div>
+                              <div class="mobile-container mobile">
+                                  <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                  <button id="stills-edit-unbranded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                                  <button id="stills-upgrade-unbranded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                              </div>
                         </div>
+
                          <div class="download-container">
-                            <input class="download-input" type="text" value="Download photos (save required)">
-                            <button id="stills-download-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="download-input link" type="text" value="">Download photos (save required)</div>
+                              <div class="pc-container pc">
+                                 <button id="stills-download-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                 <button id="stills-download-edit" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>                           
+                                 <button id="stills-download-upgrade" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                                 <button id="stills-download-credit" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                              </div>
+                              <div class="mobile-container mobile">
+                                 <button id="stills-download-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                 <button id="stills-download-edit" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>                           
+                                 <button id="stills-download-upgrade" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                                 <button id="stills-download-credit" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+
+                              </div>
                         </div>
                   </div>
 
                    <div id="drone-title">Drone photos only (5-30 photos)</div>
                    <div id="drone-options-container"> 
                       <div class="virtual-tour-branded-container">
-                            <input class="virtual-tour-branded-input" type="text" value="Virtual Tour (branded)">
-                            <button id="drone-virtual-tour-branded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-edit-branded-button" class="edit-detail-button">Edit</button>
-                            <button id="drone-upgrade-branded-button" class="upgrade-detail-button">Upgrade</button>
+                         <div class="virtual-tour-branded-input link" type="text" value="">Virtual Tour (branded)</div>
+                           <div class="pc-container pc">
+                              <button id="drone-virtual-tour-branded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                              <button id="drone-edit-branded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-branded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                              <button id="drone-craiglist-branded-button" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                           </div>
+                           <div class="mobile-container mobile">
+                              <button id="drone-virtual-tour-branded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                              <button id="drone-edit-branded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                              <button id="drone-upgrade-branded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                              <button id="drone-craiglist-branded-button" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                           </div>
+                        
                         </div>
+
                         <div class="virtual-tour-unbranded-container">
-                            <input class="virtual-tour-unbranded-input" type="text" value="Virtual Tour (unbranded)">
-                            <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-unbranded-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="virtual-tour-unbranded-input link" type="text" value="">Virtual Tour (unbranded)</div>
+                            <div class="pc-container pc">
+                               <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>                            <button id="drone-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-unbranded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>                        
+                            </div>
+                            <div class="mobile-container mobile">
+                                <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>                            <button id="drone-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-unbranded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>  
+                            </div>
+                       
                         </div>
-                         <div class="download-container">
-                            <input class="download-input" type="text" value="Download photos (save required)">
-                            <button id="drone-stills-download-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-stills-how-to-button" class="how-to-detail-button">How-to</button>
+                        <div class="download-container">
+                            <div class="download-input link" type="text" value="">Download photos (save required)</div>
+                            <div class="pc-container pc">
+                               <button id="drone-download-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                               <button id="drone-download-edit" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>                           
+                               <button id="drone-download-upgrade" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                               <button id="drone-download-credit" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                            </div>
+                            <div class="mobile-container mobile">
+                                <button id="drone-download-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                               <button id="drone-download-edit" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>                           
+                               <button id="drone-download-upgrade" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                               <button id="drone-download-credit" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                            </div>
                         </div>
                   </div>
             </div>
@@ -130,58 +297,118 @@
     </div>
     <hr id="horizontal">
 
-    <div id="purchase-container-detail">
+     <div id="purchase-container-detail">
         <div id="date-container-detail">
-           <div id="date-title">Date</div>
-           <div id="date-uploaded">2018-03-13</div>
+           <div id="date-title">Order Date</div>
+           <div id="date-ordered">2018-03-13</div>
+           <div id="how-to-container"><a href="#" target=blank id="how-to-link"><i class="far fa-question-circle"></i>&nbsp;How-to</a></div>
+        </div>
+         <div id="order-title-container">
+          <div id="order-detail-title"> Details</div>
         </div>
         <div id="order-container-detail">
-            <div id="order-detail-title">Order Details</div>
             <div id="order-address-detail">4865 Skyline Dr, Duanesburg, NY, 12053, US</div>
             <div id="purchase-options-container">
                     <div id="stills-title">Stills: Slideshow-Virtual Tour </div>
                     <div id="stills-options-container"> 
                         <div class="virtual-tour-branded-container">
-                            <input class="virtual-tour-branded-input" type="text" value="Virtual Tour (branded)">
-                            <button id="stills-virtual-tour-branded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-edit-branded-button" class="edit-detail-button">Edit</button>
-                            <button id="stills-upgrade-branded-button" class="upgrade-detail-button">Upgrade</button>
+                            <div class="virtual-tour-branded-input link" type="text" value="" onclick=copyToClipboard()>Virtual Tour (branded)</div>
+                               <div class="pc-container pc">
+                                <button id="stills-virtual-tour-branded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                <button id="stills-edit-branded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                                <button id="stills-upgrade-branded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                                <button id="stills-craiglist-branded-button" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                               </div>
+                               <div class="mobile-container mobile">
+                                <button id="stills-virtual-tour-branded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                <button id="stills-edit-branded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                                <button id="stills-upgrade-branded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                                <button id="stills-craiglist-branded-button" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                            </div>
                         </div>
+                        
                         <div class="virtual-tour-unbranded-container">
-                            <input class="virtual-tour-unbranded-input" type="text" value="Virtual Tour (unbranded)">
-                            <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-unbranded-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="virtual-tour-unbranded-input link" type="text" value="">Virtual Tour (unbranded)</div>
+                               <div class="pc-container pc">
+                                  <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                  <button id="stills-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                                  <button id="stills-upgrade-unbranded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                               </div>
+                              <div class="mobile-container mobile">
+                                  <button id="stills-virtual-tour-unbranded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                  <button id="stills-edit-unbranded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                                  <button id="stills-upgrade-unbranded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                              </div>
                         </div>
+
                          <div class="download-container">
-                            <input class="download-input" type="text" value="Download photos (save required)">
-                            <button id="stills-download-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="stills-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="download-input link" type="text" value="">Download photos (save required)</div>
+                              <div class="pc-container pc">
+                                 <button id="stills-download-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                                 <button id="stills-download-edit" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>                           
+                                 <button id="stills-download-upgrade" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                                 <button id="stills-download-credit" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                              </div>
+                              <div class="mobile-container mobile">
+                                 <button id="stills-download-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                                 <button id="stills-download-edit" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>                           
+                                 <button id="stills-download-upgrade" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                                 <button id="stills-download-credit" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+
+                              </div>
                         </div>
                   </div>
 
                    <div id="drone-title">Drone photos only (5-30 photos)</div>
                    <div id="drone-options-container"> 
                       <div class="virtual-tour-branded-container">
-                            <input class="virtual-tour-branded-input" type="text" value="Virtual Tour (branded)">
-                            <button id="drone-virtual-tour-branded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-edit-branded-button" class="edit-detail-button">Edit</button>
-                            <button id="drone-upgrade-branded-button" class="upgrade-detail-button">Upgrade</button>
+                         <div class="virtual-tour-branded-input link" type="text" value="">Virtual Tour (branded)</div>
+                           <div class="pc-container pc">
+                              <button id="drone-virtual-tour-branded-copy copy-button" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                              <button id="drone-edit-branded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-branded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                              <button id="drone-craiglist-branded-button" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                           </div>
+                           <div class="mobile-container mobile">
+                              <button id="drone-virtual-tour-branded-copy copy-button" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                              <button id="drone-edit-branded-button" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>
+                              <button id="drone-upgrade-branded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                              <button id="drone-craiglist-branded-button" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                           </div>
+                        
                         </div>
+
                         <div class="virtual-tour-unbranded-container">
-                            <input class="virtual-tour-unbranded-input" type="text" value="Virtual Tour (unbranded)">
-                            <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-unbranded-how-to-button" class="how-to-detail-button">How-to</button>
+                            <div class="virtual-tour-unbranded-input link" type="text" value="">Virtual Tour (unbranded)</div>
+                            <div class="pc-container pc">
+                               <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>                            <button id="drone-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-unbranded-button" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>                        
+                            </div>
+                            <div class="mobile-container mobile">
+                                <button id="drone-virtual-tour-unbranded-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>                            <button id="drone-edit-unbranded-button" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>
+                              <button id="drone-upgrade-unbranded-button" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>  
+                            </div>
+                       
                         </div>
-                         <div class="download-container">
-                            <input class="download-input" type="text" value="Download photos (save required)">
-                            <button id="drone-stills-download-copy" class="copy-detail-button">Copy Link</button>
-                            <button id="drone-stills-how-to-button" class="how-to-detail-button">How-to</button>
+                        <div class="download-container">
+                            <div class="download-input link" type="text" value="">Download photos (save required)</div>
+                            <div class="pc-container pc">
+                               <button id="drone-download-copy" class="copy-detail-button copy-button"><i class="far fa-copy"></i>&nbsp;Copy Link</button>
+                               <button id="drone-download-edit" class="edit-detail-button"><i class="far fa-edit"></i>&nbsp;Edit</button>                           
+                               <button id="drone-download-upgrade" class="upgrade-detail-button"><i class="fas fa-long-arrow-alt-up"></i>&nbsp;Upgrade</button>
+                               <button id="drone-download-credit" class="craigslist-detail-button"><i class="far fa-list-alt"></i>&nbsp;Craigslist</button>
+                            </div>
+                            <div class="mobile-container mobile">
+                                <button id="drone-download-copy" class="copy-detail-button copy-button mobile-button"><i class="far fa-copy"></i></button>
+                               <button id="drone-download-edit" class="edit-detail-button mobile-button"><i class="far fa-edit"></i></button>                           
+                               <button id="drone-download-upgrade" class="upgrade-detail-button mobile-button"><i class="fas fa-long-arrow-alt-up"></i></button>
+                               <button id="drone-download-credit" class="craigslist-detail-button mobile-button"><i class="far fa-list-alt"></i></button>
+                            </div>
                         </div>
                   </div>
             </div>
         </div>        
     </div>
-
 
 </div>
 </div>
